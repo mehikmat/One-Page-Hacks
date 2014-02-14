@@ -28,11 +28,14 @@ White space characters \t, \n, \$, \”, \’ and \r are often useful.
 Variable Substitution
 ==============================
 Variable substitution provides a convenient way to embed data held in a variable directly into string literals. PHP examines, or parses , double-quoted strings and replaces variable names with the variable's value
+
 $number = 45;
 $vehicle = "bus";
 $message = "This $vehicle holds $number of people”;
 Echo $message;
+
 When the name of the variable is ambiguous, braces {} can delimit the name as shown in the following example:
+
 $memory = 256;
 $message = "My computer has $memoryMbytes of RAM";( invalid)
 $message = "My computer has {$memory}Mbytes of RAM";
@@ -50,6 +53,7 @@ When they are used, the type is implicitly defined—or redefined—and the vari
 Data Types
 ========================
 PHP has four scalar types:
+
 boolean,
 float, 
 integer, 
@@ -82,6 +86,7 @@ There are two branching statements in PHP:
 2. switch
 
 if Statement
+
 if(condition)
 {
    //statements
@@ -128,6 +133,7 @@ Loops
 3. for loop
 
 While loop
+
 $counter = 1;
 while ($counter < 11)
 {
@@ -144,6 +150,7 @@ do
 } while ($counter < 11);
 
 for loop
+
 for($counter=1; $counter<11; $counter++)
 {
  print $counter;
@@ -198,19 +205,25 @@ Function in PHP also supports default parameters.
 
 
 Reusing Functions with Include and Require Files
+===================================================
 It's valuable to be able to reuse functions in many scripts. PHP provides the include and require statements that allow you to reuse PHP scripts containing statements, function definitions, and even static HTML.
+
 <?php
 include "functions.inc";
 ?>
+
 If you decide to reuse the bold( ) function  in more than one script, you can store it in a separate include file . For example, you can create a file called functions.inc and put the bold() function in this file:
 Include files can also be used to incorporate resources such as static HTML or a set of variable initializations. The following example could be written to the file release.inc and included in all the scripts of an application:
+
 <?php
 
     $showDebug = true;
 
 ?>
+
 Both include and require read external include files, the only difference is in the behavior when a file can't be included: include provides a warning whereas require terminates the script with a fatal error
 The include and require statements can be treated in the same way as other statements. For example, you can conditionally include different files using the following code fragment:
+
 if ($netscape == true)
 
 {
@@ -228,8 +241,9 @@ else
 }
 
 Scripts can include more than one include file, and include files can themselves include other files. Writing scripts that use include or require can lead to an include file being included and evaluated twice. To avoid problems with variable reassignments and function redefinitions, PHP provides the include_once or require_once constructs statements that ensure that the contents of the file are included only once.
-Managing include files
 
+Managing include files
+==========================
 // a relative file path
 
 require "../inc/myFunctions.php";
@@ -259,7 +273,9 @@ $yearString = strval($year);
 PHP also supports type conversion with type-casting
 
 $firsttype = (type) $secondtype;
+
 Example
+
 $int = (int) $var;
 $int = (integer) $var;
 $int = intval($var);
@@ -272,8 +288,10 @@ Automatic type conversion occurs when two differently typed variables are combin
 // $var is set as an integer = 115
 
 $var = "100" + 15;
+
 Examining Variable Type and Content
 Because PHP is flexible with types, it provides the following functions that can check a variable's type:
+
 boolean is_int(mixed variable) 
 boolean is_float(mixed variable) 
 boolean is_bool(mixed variable) 
@@ -300,13 +318,17 @@ unset(mixed var [, mixed var [, ...]]) // destroys the  variable
 Variable Scope
 ===================================
 Variables used inside a function are different from those used outside a function.Global variablesA variable declared as global keyword is used everywhere even within function.
+
 function doublevalue( )
 {
 global $temp;	//used everywhere in same way
 $temp = $temp * 2;
 }
+
 Static variables
+
 Variables can also be declared within a function as static. The static variable is available only in the scope of the function, but the value is not lost between function calls
+
 function doublevalue( )
 {
 static $temp;	//only within function but remain persistence
@@ -317,6 +339,7 @@ Arrays, Strings, and Advanced Data Manipulation in PHP
 =========================================================
 Creating Arrays
 PHP provides the array( ) language construct that creates arrays.
+
 $numbers = array(5, 4, 3, 2, 1);
 $words = array("Web", "Database", "Applications");
 $shopping = array( );
